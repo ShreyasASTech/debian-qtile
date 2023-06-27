@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Check if script is run as root
-if [[ $EUID -ne 0 ]]; then
-  echo "You must BE a root user to run this script, please run sudo ./install.sh" 2>&1
+if [[ $EUID == 0 ]]; then
+  echo "You must NOT be a root user to run this script, please run ./install.sh as a normal user" 2>&1
   exit 1
 fi
 
@@ -14,8 +14,8 @@ debianversion=$(cat /etc/debian_version) && debianversion=${debianversion%.*}
 
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing the required programs..."
-apt update && apt upgrade -y
-apt install fonts-powerline x11-utils x11-xserver-utils curl imagemagick pulseaudio pavucontrol lightdm slick-greeter xfce4-terminal wget nitrogen dmenu fonts-font-awesome xserver-xorg-video-intel xserver-xorg-input-libinput alsa-utils python-is-python3 python3-psutil python3-cairocffi python3-cffi python3-xcffib git picom -y
+sudo apt update && sudo apt upgrade -y
+sudo apt install fonts-powerline x11-utils x11-xserver-utils curl imagemagick pulseaudio pavucontrol lightdm slick-greeter xfce4-terminal wget nitrogen dmenu fonts-font-awesome xserver-xorg-video-intel xserver-xorg-input-libinput alsa-utils python-is-python3 python3-psutil python3-cairocffi python3-cffi python3-xcffib git picom -y
 
 # Installing & Enabling Firewall
 ./scripts/ufw.sh
@@ -24,34 +24,34 @@ apt install fonts-powerline x11-utils x11-xserver-utils curl imagemagick pulseau
 cd "$builddir" || exit
 
 # Installing qtile
+echo ""; echo "Installing Qtile..."
 git clone https://github.com/qtile/qtile.git
 cd qtile || exit
-python setup.py install
+sudo python setup.py install
 cd "$builddir" || exit
 rm -r qtile
 
 # Creating necessary directories
 echo ""; echo "Making necessary directories..."
-mkdir -p /etc/lightdm/
+sudo mkdir -p /etc/lightdm/
 mkdir -p /home/"$username"/.config/qtile/
 mkdir -p /home/"$username"/.config/picom/
 mkdir -p /home/"$username"/Screenshots/
 mkdir -p /home/"$username"/.config/screencapture/
-mkdir -p /usr/share/backgrounds/
+sudo mkdir -p /usr/share/backgrounds/
 
 # Copy config files
 echo ""; echo "Copying config files..."
-cp dotfiles/lightdm.conf /etc/lightdm/ # lightdm login manager config file
-cp dotfiles/slick-greeter.conf /etc/lightdm/ # slick-greeter config file
+sudo cp dotfiles/lightdm.conf /etc/lightdm/ # lightdm login manager config file
+sudo cp dotfiles/slick-greeter.conf /etc/lightdm/ # slick-greeter config file
 cp dotfiles/config.py /home/"$username"/.config/qtile/ # qtile wm customizations
 cp scripts/autostart.sh /home/"$username"/.config/qtile/ # Autostart apps
-cp qtile.desktop /usr/share/xsessions/ # For qtile to be lauched by lightdm
+sudo cp qtile.desktop /usr/share/xsessions/ # For qtile to be lauched by lightdm
 cp qtile.png /usr/share/slick-greeter/badges/ # For qtile to have an icon in slick-greeter login page
 cp dotfiles/picom.conf /home/"$username"/.config/picom/ # Picom Compositor config file
 cp scripts/screenshooter.sh /home/"$username"/.config/screencapture/ # script to take screenshots
-cp garden.jpg /usr/share/backgrounds/ # my current fav wallpaper
+sudo cp garden.jpg /usr/share/backgrounds/ # my current fav wallpaper
 sed -i "s/user-name/""$username""/" /home/"$username"/.config/qtile/config.py
-chown -R "$username":"$username" /home/"$username" #otherwise you need sudo privileges whenever you want to change some of these files
 
 # i3 tweaks
 . ./scripts/reboot-poweroff.sh # For configuring reboot-poweroff commands in i3 config

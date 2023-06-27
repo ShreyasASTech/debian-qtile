@@ -5,5 +5,6 @@ if [ "$distroname" == "Antix" ]; then
 	echo "Not installing lxpolkit coz it won't work properly in antix..."
 	sed -i "/lxpolkit/ c\\" /home/"$username"/.config/i3/config
 else
-	apt install lxpolkit -y
+	echo "Installing lxpolkit..."
+	sudo apt install lxpolkit -y
 fi
