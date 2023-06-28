@@ -13,3 +13,18 @@ Install script for my customised Qtile window manager install on debian
 | ![qtile-customised.png]() | 
 |:--:| 
 | *This install script + My debian customisation script* |
+
+## Installation
+
+Execute install.sh as **normal user** from a terminal:
+
+```bash
+ git clone https://github.com/shreyasastech/debian-qtile.git
+ cd debian-qtile/
+ .install.sh
+```
+
+For those who would like a single-line command:
+```bash
+ git clone https://github.com/shreyasastech/debian-qtile.git && cd debian-qtile/ && ./install.sh
+```
