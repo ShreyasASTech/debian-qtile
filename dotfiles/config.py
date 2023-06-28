@@ -11,10 +11,11 @@ from libqtile.lazy import lazy
 ##############################################################
 ##### -> Mod Key, Default Terminal & Default App Menu <- #####
 ##############################################################
-mod = "mod4"
-myTerminal = "xfce4-terminal --dynamic-title-mode=before --hide-toolbar --hide-menubar --hide-scrollbar"
-app_menu = "j4-dmenu-desktop"
-launch_htop = "xfce4-terminal --dynamic-title-mode=before --hide-toolbar --hide-menubar --hide-scrollbar -e htop"
+mod         =  "mod4"
+myTerminal  =  "xfce4-terminal --dynamic-title-mode=before --hide-toolbar --hide-menubar --hide-scrollbar"
+app_menu    =  "j4-dmenu-desktop"
+launch_htop =  "xfce4-terminal --dynamic-title-mode=before --hide-toolbar --hide-menubar --hide-scrollbar -e htop"
+myBrowser   =  "any-browser"
 
 ##############################################################
 ############### -> Keybindings & KeyChords <- ################
@@ -68,6 +69,9 @@ keys = [
 
     # Start a terminal
     Key([mod], "Return", lazy.spawn(myTerminal), desc="Launch terminal"),
+
+    # Launch my browser
+    Key([mod], "b", lazy.spawn(myBrowser), desc="Launch Browser"),
 
     # Start program launcher
     Key([mod], "p", lazy.spawn(app_menu), desc="Open Dmenu or alternative"),
