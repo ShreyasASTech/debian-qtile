@@ -51,6 +51,7 @@ cp qtile.png /usr/share/slick-greeter/badges/ # For qtile to have an icon in sli
 cp dotfiles/picom.conf /home/"$username"/.config/picom/ # Picom Compositor config file
 cp scripts/screenshooter.sh /home/"$username"/.config/screencapture/ # script to take screenshots
 sudo cp garden.jpg /usr/share/backgrounds/ # my current fav wallpaper
+cp scripts/wall-set.sh ~/ # Script to set nitrogen command in autostart to --restore
 sed -i "s/user-name/""$username""/" /home/"$username"/.config/qtile/config.py
 
 # i3 tweaks
