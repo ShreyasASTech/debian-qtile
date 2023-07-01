@@ -14,7 +14,7 @@ debianversion=$(cat /etc/debian_version) && debianversion=${debianversion%.*}
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing the required programs..."
 sudo apt update && sudo apt upgrade -y
-sudo apt install fonts-powerline x11-utils x11-xserver-utils curl imagemagick pulseaudio pavucontrol lightdm slick-greeter xfce4-terminal wget nitrogen dmenu fonts-font-awesome xserver-xorg-video-intel xserver-xorg-input-libinput alsa-utils python-is-python3 python3-psutil python3-cairocffi python3-cffi python3-xcffib git picom -y
+sudo apt install fonts-powerline x11-utils x11-xserver-utils curl imagemagick pulseaudio pavucontrol lightdm slick-greeter xfce4-terminal wget nitrogen dmenu xserver-xorg-video-intel xserver-xorg-input-libinput alsa-utils python-is-python3 python3-psutil python3-cairocffi python3-cffi python3-xcffib git picom -y
 
 # Change the current working directory
 cd "$builddir" || exit
