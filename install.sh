@@ -33,7 +33,6 @@ rm -r qtile
 
 # Creating necessary directories
 echo ""; echo "Making necessary directories..."
-sudo mkdir -p /etc/lightdm/
 mkdir -p /home/"$username"/.config/qtile/
 mkdir -p /home/"$username"/.config/picom/
 mkdir -p /home/"$username"/Screenshots/
@@ -42,8 +41,6 @@ sudo mkdir -p /usr/share/backgrounds/
 
 # Copy config files
 echo ""; echo "Copying config files..."
-sudo cp dotfiles/lightdm.conf /etc/lightdm/ # lightdm login manager config file
-sudo cp dotfiles/slick-greeter.conf /etc/lightdm/ # slick-greeter config file
 cp dotfiles/config.py /home/"$username"/.config/qtile/ # qtile wm customizations
 cp scripts/autostart.sh /home/"$username"/.config/qtile/ # Autostart apps
 sudo cp qtile.desktop /usr/share/xsessions/ # For qtile to be lauched by lightdm
