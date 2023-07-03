@@ -12,7 +12,7 @@ Install script for my customised Qtile window manager install on debian
 
 | ![qtile-with-customisation.png](https://github.com/shreyasastech/debian-qtile/assets/137637016/d4dfd78a-8afc-47a4-8c88-56e79d4a01ca) | 
 |:--:| 
-| *This install script + My [debian customisation script](https://github.com/shreyasastech/debian-customisation)* |
+| *This install script + My [debian customisation script](https://github.com/ShreyasASTech/debian-customisation)* |
 
 ## Installation
 
