@@ -88,6 +88,9 @@ keys = [
     name="(R)eboot (S)hutdown (L)ogout"
     ),
 
+    # Kill a process by specifying name
+    Key([mod], "k", lazy.spawn('/home/user-name/.config/dkill.sh'), desc="Kill a process by specifying name"),
+
     #---------------------------------#
     #------( Reconfigure Qtile )------#
     #---------------------------------#
