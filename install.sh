@@ -43,7 +43,7 @@ sudo cp qtile.desktop /usr/share/xsessions/ # For qtile to be lauched by lightdm
 cp qtile.png /usr/share/slick-greeter/badges/ # For qtile to have an icon in slick-greeter login page
 cp dotfiles/picom.conf /home/"$username"/.config/picom/ # Picom Compositor config file
 cp scripts/screenshooter.sh /home/"$username"/.config/screencapture/ # script to take screenshots
-sed -i "s/user-name/""$username""/" /home/"$username"/.config/qtile/config.py
+sed -i "s/user-name/""$username""/g" /home/"$username"/.config/qtile/config.py
 
 # i3 tweaks
 . ./scripts/reboot-poweroff.sh # For configuring reboot-poweroff commands in i3 config
