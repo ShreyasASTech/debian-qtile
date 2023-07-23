@@ -2,6 +2,7 @@
 
 lxpolkit &
 picom --config ~/.config/picom/picom.conf -b
+light-locker &
 # killall volumeicon &
 # volumeicon &
 # nm-applet &
