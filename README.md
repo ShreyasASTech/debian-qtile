@@ -19,12 +19,12 @@ Install script for my customised Qtile window manager install on debian
 Execute install.sh as **normal user** from a terminal:
 
 ```bash
- git clone https://github.com/shreyasastech/debian-qtile.git
+ git clone https://github.com/shreyas-a-s/debian-qtile.git
  cd debian-qtile/
  .install.sh
 ```
 
 For those who would like a single-line command:
 ```bash
- git clone https://github.com/shreyasastech/debian-qtile.git && cd debian-qtile/ && ./install.sh
+ git clone https://github.com/shreyas-a-s/debian-qtile.git && cd debian-qtile/ && ./install.sh
 ```
